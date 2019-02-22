@@ -1,4 +1,4 @@
-package com.ovoenergy.service
+package mw
 
 package object ops {
 
