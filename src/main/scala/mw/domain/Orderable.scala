@@ -11,3 +11,9 @@ trait Orderable[A] {
 
   def <(l: A, r: A): Boolean = compare(l, r) < 0
 }
+
+object Orderable {
+
+  implicit val intOrderable: Orderable[Int] = (l: Int, r: Int) => l - r
+
+}
