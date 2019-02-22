@@ -3,11 +3,11 @@ package mw.domain
 trait Orderable[A] {
 
   /***
-    * this < other : negative
-    * this = other : zero
-    * this > other : positive
+    * l < r : negative
+    * l = r : zero
+    * l > r : positive
     */
-  def compare(other: A): Int
+  def compare(l: A, r: A): Int
 
-  def <(other: A): Boolean = compare(other) < 0
+  def <(l: A, r: A): Boolean = compare(l, r) < 0
 }
