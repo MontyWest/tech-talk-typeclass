@@ -1,6 +1,8 @@
 package mw
 
 import mw.domain.Orderable
+import mw.domain.syntax._
+
 
 package object ops {
 
@@ -15,6 +17,6 @@ package object ops {
     case Nil => Nil
     case _ :: Nil => ls
     case x :: xs =>
-      sort(xs.filter(a => order.<(a, x))) ++ List(x) ++ sort(xs.filterNot(a => order.<(a, x)))
+      sort(xs.filter(_ < x)) ++ List(x) ++ sort(xs.filterNot(_ < x))
   }
 }

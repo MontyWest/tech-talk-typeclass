@@ -27,4 +27,5 @@ object Orderable {
 
   def reverse[A](implicit order: Orderable[A]): Orderable[A] =
     (l: A, r: A) => order.compare(r, l)
+
 }
