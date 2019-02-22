@@ -9,4 +9,10 @@ package object ops {
       sortInts(xs.filter(a => a < x)) ++ List(x) ++ sortInts(xs.filterNot(a => a < x))
   }
 
+  def sort[A](ls: List[A]): List[A] = ls match {
+    case Nil => Nil
+    case _ :: Nil => ls
+    case x :: xs =>
+      sort(xs.filter(a => a < x)) ++ List(x) ++ sort(xs.filterNot(a => a < x))
+  }
 }
