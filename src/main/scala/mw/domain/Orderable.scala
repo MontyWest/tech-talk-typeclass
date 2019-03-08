@@ -14,6 +14,8 @@ trait Orderable[A] {
 
 object Orderable {
 
+  def apply[A](implicit order: Orderable[A]): Orderable[A] = order
+
   implicit val intOrderable: Orderable[Int] = (l: Int, r: Int) => l - r
 
   implicit val stringOrderable: Orderable[String] =

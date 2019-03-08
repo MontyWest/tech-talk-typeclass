@@ -1,8 +1,7 @@
 package mw
 
-import mw.domain.Orderable
-import mw.domain.syntax._
-
+import cats.Order
+import cats.syntax.order._
 
 package object ops {
 
@@ -13,7 +12,7 @@ package object ops {
       sortInts(xs.filter(a => a < x)) ++ List(x) ++ sortInts(xs.filterNot(a => a < x))
   }
 
-  def sort[A](ls: List[A])(implicit order: Orderable[A]): List[A] = ls match {
+  def sort[A: Order](ls: List[A]): List[A] = ls match {
     case Nil => Nil
     case _ :: Nil => ls
     case x :: xs =>
