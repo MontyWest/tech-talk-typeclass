@@ -1,9 +1,7 @@
 package mw.domain
 
 import cats.Order
-import cats.instances.int._
-import cats.instances.string._
-import cats.instances.tuple._
+import cats.implicits._
 
 final case class Person(age: Int, name: String)
 
